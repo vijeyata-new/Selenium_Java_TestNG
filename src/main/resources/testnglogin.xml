@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ParaBank Test Suite">
+
+    <test name="ParaBank Login Test cases">
+        <classes>
+            <class name="com.Tests.RegisterUserTest"/>
+            <class name="com.Tests.LoginTest"/>
+            <class name="com.Tests.ForgotPwdTest"/>
+        </classes>
+    </test>
+
+</suite>

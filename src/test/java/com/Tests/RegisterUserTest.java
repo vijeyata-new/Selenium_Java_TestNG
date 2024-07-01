@@ -18,14 +18,14 @@ public class RegisterUserTest extends BaseClass {
 
     String pass1 = "Password@123";
     String pass2 = "Password@123";
-    String FirstNAME = "Tina";
-    String LastNAME = "Hays";
-    String Address = "High Street";
+    String FirstNAME = "Richard";
+    String LastNAME = "Gray";
+    String Address = "Main Street";
     String CityName = "London";
     String StateName = "London";
-    String ZipCode = "ER3WE2";
-    String SSNNum = "22432";
-    String username = "tinahays4857";
+    String ZipCode = "LK 4GG";
+    String SSNNum = "112233";
+    String username = "newuser55666";
 
 
     public RegisterUserTest() {

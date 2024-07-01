@@ -12,8 +12,8 @@ public class LoginTest extends BaseClass {
      LoginPage loginpage;
      BaseClass basepage;
    //  WebDriver driver;
-    String UserName = "riyadon123";
-    String Password = "Riya@123";
+    String UserName = "newuser55666";
+    String Password = "Password@123";
 
      public LoginTest(){
          super();
