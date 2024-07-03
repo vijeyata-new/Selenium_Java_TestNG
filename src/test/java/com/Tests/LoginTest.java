@@ -12,7 +12,7 @@ public class LoginTest extends BaseClass {
      LoginPage loginpage;
      BaseClass basepage;
    //  WebDriver driver;
-    String UserName = "newuser55666";
+    String UserName = "malvika111" ;
     String Password = "Password@123";
 
      public LoginTest(){
@@ -28,10 +28,11 @@ public class LoginTest extends BaseClass {
      }
 
      @Test(priority = 1)
-     public void loginTest() {
+     public void loginTest() throws InterruptedException {
       //   basepage = loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
          loginpage.login(UserName, Password);
-
+         Thread.sleep(5000);
+         loginpage.verifyLoginMsg();
      }
 
     @AfterMethod
