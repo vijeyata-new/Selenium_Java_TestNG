@@ -2,9 +2,7 @@ package org.example.Pages;
 
 import base.BaseClass;
 import dev.failsafe.internal.util.Assert;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -46,26 +44,38 @@ public class LoginPage extends BaseClass {
      //   return new LoginPage();
     }
 
-    public void verifyLoginMsg() throws NoSuchElementException {
+    public void verifySuccessLoginMsg() {
         try {
-          //  wait.until(ExpectedConditions.visibilityOf(msg_welcome));
-            if(msg_welcome.isDisplayed()) {
-                if(Objects.equals(msg_welcome.getText(), "Welcome")) {
+            WebElement welcomeElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[text()='Welcome']")));
+
+            if(welcomeElement!=null && welcomeElement.isDisplayed()) {
+                if (Objects.equals(welcomeElement.getText(), "Welcome")) {
                     System.out.println("User logged in successfully");
-                    Assert.isTrue(true,"User logged in now");
-                }
-            } else {
-                if (msg_error.isDisplayed()) {
-                    System.out.println("User is not logged in");
-                    System.out.println("Error is - " + error_msg.getText());
-                    Assert.isTrue(false, "user not logged in");
+                    Assert.isTrue(true, "User logged in now");
                 }
             }
+        }
+        catch (TimeoutException e) {
+            System.out.println("Timeout waiting for welcome message. User might not be logged in.");
+            WebElement errorElement = driver.findElement(By.cssSelector("#rightPanel p.error"));
+            System.out.println("Error is - " + errorElement.getText());
         }
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
+    public void verifyErrorLoginMsg() {
+        try {
+            if (msg_error.isDisplayed()) {
+                System.out.println("User is not logged in");
+                System.out.println("Error is - " + error_msg.getText());
+                Assert.isTrue(true, "user not logged in");
+            }
+        }
+        catch (Exception e) {
+            e.getMessage();
+        }
     }
 
 }

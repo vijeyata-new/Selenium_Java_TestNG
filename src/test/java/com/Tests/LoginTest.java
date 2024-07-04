@@ -32,7 +32,16 @@ public class LoginTest extends BaseClass {
       //   basepage = loginpage.login(prop.getProperty("username"), prop.getProperty("password"));
          loginpage.login(UserName, Password);
          Thread.sleep(5000);
-         loginpage.verifyLoginMsg();
+         loginpage.verifySuccessLoginMsg();
+
+     }
+
+     @Test(priority = 2)
+     public void errorLoginTest() throws InterruptedException {
+
+         loginpage.login("usesrr1","pass1");
+         Thread.sleep(5000);
+         loginpage.verifyErrorLoginMsg();
      }
 
     @AfterMethod

@@ -1,13 +1,9 @@
 package com.Tests;
 
-import Utils.webDriverManager;
 import base.BaseClass;
 
-import org.bouncycastle.crypto.prng.RandomGenerator;
 import org.example.Pages.RegisterPage;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.*;
 
 
